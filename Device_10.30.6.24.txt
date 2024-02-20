@@ -1,0 +1,4 @@
+conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2sssssssssssssss(config)#ip route 192.168.1.0 255.255.255.0 172.16.1.1
+R2sssssssssssssss(config)#
