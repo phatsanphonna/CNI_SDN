@@ -1,0 +1,11 @@
+terminal length 0
+R2sssssssssssssss#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2sssssssssssssss(config)#access-list 100 permit ip host 192.168.1.1 host 192$ 100 permit ip host 192.168.1.1 host 192.         168.1.129
+R2sssssssssssssss(config)#route-map REVERSE-ROUTE permit 10
+R2sssssssssssssss(config-route-map)#match ip address 100
+R2sssssssssssssss(config-route-map)#set ip next-hop 172.16.1.1
+R2sssssssssssssss(config-route-map)#exit
+R2sssssssssssssss(config)#ip local policy route-map REVERSE-ROUTE
+R2sssssssssssssss(config)#exit
+R2sssssssssssssss#

@@ -1,0 +1,9 @@
+telnet 172.16.1.2
+conf t
+access-list 100 permit ip host 192.168.1.1 host 192.168.1.129
+route-map REVERSE-ROUTE permit 10
+match ip address 100
+set ip next-hop 172.16.1.1
+exit
+ip local policy route-map REVERSE-ROUTE
+exit

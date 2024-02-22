@@ -1,4 +1,6 @@
-conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-R2sssssssssssssss(config)#ip route 192.168.1.0 255.255.255.0 172.16.1.1
-R2sssssssssssssss(config)#
+traceroute 192.168.1.129
+Type escape sequence to abort.
+Tracing the route to 192.168.1.129
+VRF info: (vrf in name/id, vrf out name/id)
+  1 172.16.1.6 0 msec 0 msec * 
+R2sssssssssssssss#

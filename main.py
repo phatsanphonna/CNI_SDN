@@ -1,4 +1,5 @@
 from telnetlib import Telnet
+import time
 
 IP_ADDRESS = '10.30.6.24'
 USERNAME = 'cisco'
@@ -16,7 +17,6 @@ def connect():
         client.write(PASSWORD.encode('ascii') + b"\n")
     
     client.read_until(b"#")
-    client.write(b"terminal length 0\n")
     print('Connected')
 
 def disconnect():
@@ -43,13 +43,12 @@ def use_prompt():
         print(client.read_until(b"#").decode('utf-8'))
 
 def use_script(filename: str):
-    output_filename = "Device_" + IP_ADDRESS + '.txt'
+    output_filename = "Device_" + IP_ADDRESS + str(time.time()) + '.txt'
     script_list = open(filename, 'r')
     final_output = ''
 
     for line in script_list:
-        client.read_until(b"#")
-        client.write(line.encode('ascii') + b"\n")
+        client.write(line.encode('ascii'))
 
         if line.startswith('telnet'):
             connect()
@@ -57,6 +56,7 @@ def use_script(filename: str):
 
         device_config = client.read_until(b"#").decode('utf-8')
         final_output += device_config
+        print(final_output)
 
     script_list.close()
 
@@ -68,3 +68,4 @@ def use_script(filename: str):
 
 connect()
 use_script('script.txt')
+# use_script('script.txt')

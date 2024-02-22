@@ -1,2 +1,16 @@
+sh run | include hostname
+sh ip route
+sh ip int
+sh version
 telnet 172.16.1.2
-traceroute 192.168.1.129
+sh run | include hostname
+sh ip route
+sh ip int
+sh version
+quit
+telnet 172.16.1.5
+sh run | include hostname
+sh ip route
+sh ip int
+sh version
+quit
